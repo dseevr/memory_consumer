@@ -1,6 +1,6 @@
 OUTPUT=memory_consumer
 
-.PHONY: all clean
+.PHONY: all build clean
 
 all: build
 
