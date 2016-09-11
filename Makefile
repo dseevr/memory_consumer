@@ -5,7 +5,7 @@ OUTPUT=memory_consumer
 all: build
 
 build: clean
-	g++ -std=gnu++11 -fno-exceptions -Os main.cpp -o $(OUTPUT)
+	clang++ -std=gnu++11 -fno-exceptions -Os main.cpp -o $(OUTPUT)
 
 clean:
 	rm -f $(OUTPUT)
