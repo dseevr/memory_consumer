@@ -2,23 +2,22 @@
 
 This program just consumes however many megabytes of memory you specify and then sleeps forever.
 
+It might be useful for simulating high memory usage situations or triggering OOMs during testing.
+
 ## Usage
+
+NOTE: The default target in `Makefile` assumes Docker is installed.  If not, check out `build/build.sh` for the `g++` invocation.
 
 ```sh
 make
-./memory_consumer 1024 # allocates 1gb of memory
+./build/output/memory_consumer 1024 # allocates 1gb of memory
 ```
 
-Or, via Docker:
+Or just run the image right from my Docker Hub account:
 
 ```sh
 docker run billrobinson/memory_consumer 1024 # allocates 1gb of memory
 ```
-
-## TODO
-
-- [ ] Only install packages necessary to compile the binary rather than using the _build-base_ package.
-- [ ] Uninstall any packages not required to run the binary (libstdc++, etc.)
 
 ## License
 

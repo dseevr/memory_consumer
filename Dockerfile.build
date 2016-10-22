@@ -1,0 +1,11 @@
+FROM alpine:latest
+
+RUN apk add --update build-base
+
+COPY main.cpp /tmp/main.cpp
+COPY build/build.sh /tmp/build.sh
+
+WORKDIR /tmp
+
+ENTRYPOINT ["/bin/sh", "/tmp/build.sh"]
+CMD [""]

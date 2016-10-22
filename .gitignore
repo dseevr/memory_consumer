@@ -1,3 +1,4 @@
 memory_consumer
 *.out
 *.o
+build/output/
