@@ -4,6 +4,8 @@ This program just consumes however many megabytes of memory you specify and then
 
 It might be useful for simulating high memory usage situations or triggering OOMs during testing.
 
+The Docker image is only **600kb**!
+
 ## Usage
 
 NOTE: The default target in `Makefile` assumes Docker is installed.  If not, check out `build/build.sh` for the `g++` invocation.
