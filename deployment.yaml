@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: memory-consumer
+  namespace: memory-consumer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: memory-consumer
+  template:
+    metadata:
+      labels:
+        app: memory-consumer
+    spec:
+      containers:
+      - name: memory-consumer
+        image: billrobinson/memory_consumer
+        args:
+          - "10240"
+        imagePullPolicy: Always
+        ports:
+        - name: metrics
+          containerPort: 8080
+        resources:
+          requests:
+            memory: 5Gi
+          limits:
+            memory: 10Gi
+      restartPolicy: Always
+
