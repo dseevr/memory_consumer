@@ -1,0 +1,33 @@
+# Deployment config for performance monitor. To be used when deploying in on the cluster.
+# RBAC: requires view access to Pods and Events.
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: memory_consumer
+  namespace: memory-consumer
+  labels:
+    app: memory-consumer
+spec:
+  selector:
+    matchLabels:
+      app: memory-consumer
+  template:
+        app: memory-consumer
+    spec:
+      containers:
+      - name: memory-consumer
+        image: billrobinson/memory_consumer
+        command:
+          - /slo-monitor
+          -  --alsologtostderr=true
+        imagePullPolicy: Always
+        ports:
+        - name: metrics
+          containerPort: 8080
+        resources:
+          requests:
+            memory: 10Gi
+          limits:
+            memory: 10Gi
+      restartPolicy: Always
+
